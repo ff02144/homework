@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <label for="inputValue">please input a number between 150 and 300: </label>
+    <input type="text" id="inputValue">
+    <button onclick="validateInput()">Check Value</button>
+    <p id="validationResult"></p>
+
+    <script>
+        function validateInput() {
+            // Get the input element
+            var inputValue = document.getElementById("inputValue").value;
+
+            // Check if the input is a number
+            if (isNaN(inputValue)) {
+                document.getElementById("validationResult").innerHTML = "Invalid input. Please enter a number.";
+            } else {
+                // Check the value range
+                if (inputValue > 100) {
+                    document.getElementById("validationResult").innerHTML = "Value too large";
+                } else if (inputValue < 1) {
+                    document.getElementById("validationResult").innerHTML = "Value too small";
+                } else {
+                    document.getElementById("validationResult").innerHTML = "Input OK";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
